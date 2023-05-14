@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1</title>
+</head>
+<body>
+    <script>
+
+        ////// HUOMAA että tehtävä #8 on toteutettu kohdassa #5
+
+        'use strict';
+        // #1
+        function log() {
+            console.log("I'm printing to console!");
+        }
+
+        // #2
+        function helloWorld() {
+            let username = +prompt("Give your name please!: ");
+            document.write('<p>Hello, ' + username,'</p>');
+        }
+
+        // #3
+        function calculator() {
+            let num1 = +prompt('anna numero');
+            let num2 = +prompt('anna toinen numero');
+            let num3 = +prompt('anna kolmas numero');
+            document.write('<p>numeroiden summa on ', Number(num1)+Number(num2)+Number(num3),'</p>');
+            document.write('<p>numeroiden tulo on ', Number(num1)*Number(num2)*Number(num3),'</p>');
+            document.write('<p>numeroiden keskiarvo on ', (Number(num1)+Number(num2)+Number(num3))/3,'</p>');
+        }
+
+        // #4
+        function hat() {
+            const randomValue = Math.floor(Math.random() * 4) + 1;
+            let house;
+            if (randomValue === 1) {
+                house = 'Gryffindor';
+            } else if (randomValue === 2) {
+                house = 'Slytherin';
+            } else if (randomValue === 3) {
+                house = 'Hufflepuff';
+            } else {
+                house = 'Ravenclaw';
+            }
+            document.write('<p>Olet ', String(house), '</p>');
+        }
+
+        // #5
+        function karkausvuodet() {
+            let lopetusvuosi = +prompt("Syötä lopetusvuosi ");
+            let vuosi = +prompt("syötä ensimmäinen vuosi: ");
+            let karkausvuosi = [];
+
+            let list = document.getElementById("vuosilista");
+
+            while (vuosi <= lopetusvuosi) {
+                if (vuosi % 400 == 0) {
+                karkausvuosi.push(vuosi);
+                } else if (vuosi % 100 != 0 && vuosi % 4 == 0) {
+                karkausvuosi.push(vuosi);
+                }
+                vuosi++;
+            }
+
+            karkausvuosi.forEach((object) => {
+                let li = document.createElement("li");
+                li.innerText = object;
+                list.appendChild(li);
+            });
+        }
+
+
+        // #6
+        function calculateSquareRoot() {
+			const shouldCalculate = confirm('Should I calculate the square root?');
+			if (!shouldCalculate) {
+				document.getElementById('result').textContent = 'The square root is not calculated.';
+				return;
+			}
+
+			const number = prompt('Gimme a number:');
+			if (number === null) {
+				document.getElementById('result').textContent = 'The square root is not calculated.';
+				return;
+			}
+
+			const squareRoot = Math.sqrt(parsedNumber);
+			const result = `The square root of ${parsedNumber} is ${squareRoot}.`;
+			document.getElementById('result').textContent = result;
+		}
+
+        // #7
+        function noppa() {
+            const kuutiot = +prompt("Anna arpakuutioiden määrä");
+            const heitot = [];
+
+            for (let i = 0; i<kuutiot; i++) {
+                const tulos = Math.floor(Math.random()*6)+1;
+                console.log('Nopan ' + (i+1) + ' tulos: ' + tulos);
+                heitot[i] = tulos;
+            }
+        }
+
+        // #8 = #5
+
+        function checkPrime() {
+			let number = +prompt("Gimme a number");
+			let isPrime = true;
+
+			if (number <= 1) {
+				isPrime = false;
+			} else {
+				for (let i = 2; i <= Math.sqrt(number); i++) {
+					if (number % i === 0) {
+						isPrime = false;
+						break;
+					}
+				}
+			}
+
+			if (isPrime) {
+                document.write(`<p>${number} is a prime number. </p>`);
+			} else {
+				document.write(`<p>${number} is NOT a prime number. </p>`);
+			}
+		}
+
+        function dicePropability() {
+            let dice = +prompt('Number of dice: ');
+			let sum = +prompt('Sum of eye numbers:');
+
+			let count = 0;
+			const trials = 10000;
+			for (let i = 0; i < trials; i++) {
+				let total = 0;
+				for (let j = 0; j < dice; j++) {
+					total += Math.floor(Math.random() * 6) + 1;
+				}
+				if (total === sum) {
+					count++;
+				}
+			}
+			const probability = count / trials * 100;
+            document.write(`<p> Probability to get sum ${sum} with ${dice} dice is ${probability.toFixed(2)}% </p>`);
+        }
+        
+        log();
+        helloWorld();
+        calculator();
+        hat();
+        karkausvuodet();
+        calculateSquareRoot();
+        noppa();
+        checkPrime();
+        dicePropability();
+
+    </script>
+</body>
+</html>

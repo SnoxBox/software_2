@@ -1,0 +1,53 @@
+:root {
+    --white: white;
+    --dark: #121212;
+}
+
+body {
+    font-family: arial;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    color: white;
+}
+
+table {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+article {
+    width: 900px;
+    height: 200px;
+    padding: 15px;
+    margin: 30px;
+    background-color: #454545;
+    border: 1px solid #454545;
+    border-radius: 20px;
+}
+
+article a {
+    float: left;
+}
+
+article p {
+    position: absolute;
+    float: left;
+    text-align: left;
+    margin-top: 25px;
+    width: 500px;
+    height: 150px;
+}
+
+article img {
+    position: relative;
+    float: right;
+    border-radius: 10px;
+    top: -19px;
+    width: 150px;
+    height: 200px;
+}

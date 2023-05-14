@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taulukot</title>
+</head>
+<body>
+    <ol id="myList"></ol>
+    <ul id="koiralista"></ul>
+    <script>
+
+        function vastakkain() {
+            let item = prompt("Anna lukuja, erottele ne käyttämällä ','").split(",");
+            console.log(item);
+
+            function takaperin() {
+            let reversed = item.reverse();
+            console.log(reversed);
+            }
+            takaperin();
+        }
+
+        function nimet() {
+            let nimilista = prompt("anna pari nimee, erottele ne käyttämällä ','").split(",");
+            let id = document.getElementById("myList");
+
+            nimilista.forEach((object)=>{
+                let li = document.createElement("li");
+                li.innerText = object;
+                id.appendChild(li);
+            })
+        }
+
+        function koirat() {
+            let nimilista = prompt("anna pari koiran nimeä, erottele ne pilkulla").split(",");
+            let s_nimilista = nimilista.sort((a, b) => a.localeCompare(b));
+            
+            let list = document.getElementById("koiralista");
+
+            s_nimilista.forEach((object)=>{
+            let li = document.createElement("li");
+            li.innerText = object;
+            list.appendChild(li);
+            })
+        }
+
+        function nolla() {
+            let numerot = [];
+
+            while (true) {
+                let input = prompt("numeroita");
+
+                if (input == 0) {
+                    return false;
+                }
+
+                numerot.push(input);
+                console.log(numerot);
+            }
+        }
+
+        function samanumero() {
+            let numerot = [];
+
+            while (true) {
+                let input = prompt("numeroita");
+
+                for (var i = 0; i < numerot.length; i++) {
+                    if (input == numerot[i]) {
+                        window.alert("VITTU ET LAITA SAMAA NUMEROA!!")
+                        return false;
+                    }
+                }
+
+                numerot.push(input);
+                console.log(numerot);
+            }
+        }
+
+        function mediaanit() {
+            let arr = prompt("anna numeroita, erota ne pilkulla").split(",")
+
+            arr.sort((a, b) => a - b)
+
+            let median;
+
+            if(arr.length%2 != 0){
+                let middleIndex = Math.floor(arr.length/2)
+                median = arr[middleIndex]
+            } else {
+                let middleIndex = Math.floor(arr.length/2)
+                median = arr[middleIndex] + arr[middleIndex + 1]
+            }
+            console.log(median)
+        }
+        
+        mediaanit();
+
+    </script>
+</body>
+</html>

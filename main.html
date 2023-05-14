@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-kokeilu</title>
+
+    <style>
+        body {
+          font-size: 16px;
+          background-color: #121212;
+          color: white;
+          float: center;
+          margin: 0;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        .p {
+          color: white;
+          width: 75%;
+          text-align: left;
+          padding: 8px;
+          text-decoration: none;
+        }
+
+    </style>
+</head>
+</pre><center></pre>
+<body>
+    <script>
+
+        'use strict';
+        const motd = 'Tämä on JavaScript-ohjelma!';
+        const luoti = 13.3;
+        const naula = 32*luoti;
+        const leiviska = 20*naula;
+        document.write('<h>',motd,'</h>');
+        let nimi = prompt("nimesi!");
+        document.write('<p>Terve, ' + nimi,'</p>');
+        let sade = +prompt("anna säde perkele");
+        document.write('<p>Ympyrän pinta-ala on ',2*Math.PI*sade,'</p>');
+
+        let kanta = +prompt("anna suorakulmion kanta");
+        let korkeus = +prompt("anna suorakulmion korkeus");
+        document.write('<p>Suorakulmion piiri on ', kanta*2+korkeus*2,'</p>');
+        document.write('<p>Suorakulmion pinta-ala on ', kanta*korkeus,'</p>');
+
+        let num1 = +prompt('anna numero');
+        let num2 = +prompt('anna toinen numero');
+        let num3 = +prompt('anna kolmas numero');
+        document.write('<p>numeroiden summa on ', Number(num1)+Number(num2)+Number(num3),'</p>');
+        document.write('<p>numeroiden tulo on ', Number(num1)*Number(num2)*Number(num3),'</p>');
+        document.write('<p>numeroiden keskiarvo on ', (Number(num1)+Number(num2)+Number(num3))/3,'</p>');
+
+        let leiviskat = +prompt("montako leivistää?");
+        let luodit = +prompt("montako luotia?");
+        let naulat = +prompt("montako naulaa?");
+
+        let kokonaismassa = leiviskat * leiviska + naulat * naula + luodit * luoti;
+        let kilo = Math.floor(kokonaismassa/1000);
+        let gramma = kokonaismassa%1000;
+
+        document.write('<p>Massa nykymittojen mukaan:</p>');
+        document.write(kilo, ' kilogrammaa ja ', gramma.toFixed(2), ' grammaa.');
+
+        let saldo = +prompt("Anna tilin saldo");
+        let korkorosentti = +prompt("Anna korko prosentti")
+        const aika = 5;
+        const n = 12;
+        const compoundInterest = (saldo, aika, korkorosentti, n) => {
+          const amount = p * (Math.pow((1 + (korkorosentti / n)), (n * time)));
+          const interest = amount - saldo;
+          return interest;
+        };
+
+        document.write(compoundInterest(aika, n, saldo, korkorosentti))
+
+    </script>
+</body>
+</html>

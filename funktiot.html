@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funktiot</title>
+</head>
+<body>  
+    <script>
+
+        function main_muunnos() {
+            let input = +prompt("rEEEEE");
+
+            muunnos(input);
+
+            function muunnos() {
+                let gallons = input;
+                let liters = gallons * 3.785412;
+                console.log(liters + " litraa");
+            }
+        }
+
+        function main_itseisarvo() {
+            let input = +prompt("anna numero");
+
+            itseisarvo(input);
+
+            function itseisarvo() {
+                let numero = input;
+                console.log(numero);
+            }
+        }
+
+        function main_numbers() {
+            var array = [];
+            var size = 5;
+
+            for(var a=0; a<size; a++) {
+                array[a] = +prompt("anna numero " + (a+1));
+            }
+
+            console.log(array);
+
+            calc.apply(this, array);
+
+            function calc() {
+                console.log(Math.max.apply(null, array));
+            }
+        }
+
+        function main_liitä() {
+            var array = [];
+            var size = 5;
+
+            for(var a=0; a<size; a++) {
+                array[a] = +prompt("anna luku " + (a+1));
+            }
+
+            console.log(array);
+
+            liitä.apply(this, array);
+
+            function liitä() {
+                console.log(array.join(""))
+            }
+        }
+
+        function main_vastaluvut() {
+            var array = [];
+            var size = 5;
+
+            for(var a=0; a<size; a++) {
+                array[a] = +prompt("anna luku " + (a+1));
+            }
+
+            console.log(array);
+
+            vastaluvuksi.apply(this, array);
+
+            function vastaluvuksi() {
+                array.forEach((object)=>{
+                console.log("-"+object);
+                })
+            }
+        }
+
+        function main_parilliset() {
+            var array = [];
+            var size = 5;
+
+            for(var a=0; a<size; a++) {
+                array[a] = +prompt("anna luku " + (a+1));
+            }
+
+            var array_dos = [...array];
+
+            console.log("Original array " + array);
+            console.log("Second array " + array_dos);
+            
+
+            parilliset.apply(this, array_dos);
+
+            function parilliset() {
+                const even = array_dos.filter(number => {
+                return number % 2 === 0;
+                });
+
+                console.log(even);
+            }
+        }
+
+        function fibonacci() {
+            const number = parseInt(prompt('Gimmi numbers: '));
+            let n1 = 0, n2 = 1, nextTerm;
+
+            console.log('Fibonacci saja:');
+
+            for (let i = 1; i <= number; i++) {
+                console.log(n1);
+                nextTerm = n1 + n2;
+                n1 = n2;
+                n2 = nextTerm;
+            }
+        }
+
+        main_muunnos();
+        main_itseisarvo();
+        main_numbers();
+        main_liitä();
+        main_vastaluvut();
+        main_parilliset();
+        fibonacci();
+
+    </script>
+</body>
+</html>

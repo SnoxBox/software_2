@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funktiot</title>
+</head>
+<body>
+    <ul id="vuosilista"></ul>
+    <script>
+
+        function kertoma() {
+            let tulo;
+            let numero = prompt("GIMMI A NUMBER");
+            for (let i = 1; i<=numero; i++) {
+                tulo = i*numero;
+                console.log(i+"*"+numero+"="+tulo);
+            }
+        }
+
+        function neliojuuri() {
+            let numero = prompt('Anna numero');
+            while (numero <= 0) {
+                numero = prompt('Numeron on oltava positiivinen. Anna numero uudelleen');
+            }
+            console.log(Math.sqrt(numero));
+        }
+
+        function karkausvuodet() {
+            let lopetusvuosi = +prompt("Syötä lopetusvuosi ");
+            let vuosi = + prompt("syötä ensimmäinen vuosi: ");
+            let karkausvuosi = [];
+            
+            let list = document.getElementById("vuosilista");
+
+            while (vuosi <= lopetusvuosi) {
+                if (vuosi % 400 == 0) {
+                    vuosi.push(karkausvuosi);
+                } else if (vuosi % 100 != 0 && vuosi % 4 == 0) {
+                    vuosi.push(karkausvuosi);
+                }
+                vuosi++;
+            }
+            
+            karkausvuosi.forEach((object)=>{
+            let li = document.createElement("vuosilista");
+            li.innerText = object;
+            list.appendChild(li);
+            })
+        }
+
+        function noppa() {
+            const kuutiot = +prompt("anna arpakuutioiden määrä");
+            const heitot = [];
+
+            for (let i = 0; i<kuutiot; i++) {
+                const tulos = Math.floor(Math.random()*6)+1;
+                console.log('Nopan ' + (i+1) + ' tulos: ' + tulos);
+                heitot[i] = tulos;
+            }
+        }
+
+        function kokonaisluku() {
+            const luku = + prompt("anna luku");
+        }
+
+        karkausvuodet();
+
+    </script>
+</body>
+</html>

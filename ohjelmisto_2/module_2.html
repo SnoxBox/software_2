@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2</title>
+</head>
+<body>
+    <ol id="myList"></ol>
+    <ul id="koiralista"></ul>
+    <ul id="noppalista"></ul>
+    <script>
+
+        function rollDice(numSides) {
+            return Math.floor(Math.random() * numSides) + 1;
+        }
+
+        // #1
+        function vastakkain() {
+            let item = prompt("Anna lukuja, erottele ne käyttämällä ','").split(",");
+            console.log(item);
+
+            let käännettyLista = []
+
+            for (let i = item.length - 1; i >= 0; i--) {
+                let indeksinArvo = item[i]
+                käännettyLista.push(indeksinArvo)
+            }
+
+            console.log(käännettyLista);
+        }
+
+        // #2
+        function nimet() {
+            let nimilista = prompt("Anna muutama nimeä, erottele ne käyttämällä ','").split(",");
+            let s_nimilista = nimilista.sort((a, b) => a.localeCompare(b));
+
+            let id = document.getElementById("myList");
+
+            s_nimilista.forEach((object)=>{
+                let li = document.createElement("li");
+                li.innerText = object;
+                id.appendChild(li);
+            })
+        }
+
+        // #3
+        function koirat() {
+            let nimilista = prompt("Anna muutama koiran nimeä, erottele ne pilkulla").split(",");
+            let s_nimilista = nimilista.sort((b, a) => b.localeCompare(a));
+            
+            let list = document.getElementById("koiralista");
+
+            s_nimilista.forEach((object)=>{
+            let li = document.createElement("li");
+            li.innerText = object;
+            list.appendChild(li);
+            })
+        }
+
+        // #4
+        function nolla() {
+            let numerot = [];
+
+            while (true) {
+                let input = prompt("numeroita");
+
+                if (input == 0) {
+                    return false;
+                }
+
+                numerot.push(input);
+                numerot.sort((a, b) => b - a);
+                console.log(numerot);
+            }
+        }
+
+        // #5
+        function samanumero() {
+            let numerot = [];
+
+            while (true) {
+                let input = prompt("numeroita");
+
+                for (var i = 0; i < numerot.length; i++) {
+                    if (input == numerot[i]) {
+                        window.alert("ET LAITA SAMAA NUMEROA!!")
+                        return false;
+                    }
+                }
+
+                numerot.push(input);
+                console.log(numerot);
+            }
+        }
+
+        // #6 & 7
+        function noppa() {
+            const maxNumSides = Number(prompt("Enter the numbers of sides on a die:"));
+            let rollResult = rollDice(maxNumSides);
+            let rolls = [rollResult];
+
+            while (rollResult < maxNumSides) {
+                rollResult = rollDice(maxNumSides);
+                rolls.push(rollResult);
+            }
+
+            let list = document.getElementById("noppalista");
+
+            rolls.forEach((roll)=> {
+                let listItem = document.createElement('li');
+                listItem.innerText = `Roll result: ${roll}`;
+                list.appendChild(listItem);
+            })
+        }
+
+        // #8
+        function concat(arr) {
+        let result = "";
+        for (let i = 0; i < arr.length; i++) {
+            result += arr[i];
+        }
+            return result;
+        }
+
+        const arr = ['Johnny', 'DeeDee', 'Joey', 'Marky'];
+        const concatenated = concat(arr);
+        document.write(concatenated);
+
+
+        // #9
+        function even(arr) {
+        let evenArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+            evenArr.push(arr[i]);
+            }
+        }
+            return evenArr;
+        }
+
+        let arr2 = [2, 7, 4];
+        let evenArr = even(arr2);
+        console.log("Original array:", arr2);
+        console.log("Even array:", evenArr);
+
+
+        // #10
+
+        let candidates = []
+        let addcandidates = prompt("Anna ehdokkaiden nimiä, erottele ne pilkulla").split(",");
+        console.log(addcandidates)
+        let numCandidates = addcandidates.length;
+
+        for (let i = 0; i < numCandidates; i++) {
+            candidates.push({ name: addcandidates[i], votes: 0 });
+        }
+
+        console.log(candidates);
+
+
+        const numVoters = parseInt(prompt('Anna äänestäjien määrä: '));
+
+        for (let i = 1; i <= numVoters; i++) {
+        const vote = prompt(`Äänestäjä ${i}, anna äänestämäsi ehdokkaan nimi (tai paina enter jos et halua äänestää): `);
+        const candidate = candidates.find(c => c.name === vote);
+        if (candidate) {
+            candidate.votes++;
+        }
+        }
+
+        candidates.sort((a, b) => b.votes - a.votes);
+
+        const winner = candidates[0];
+        
+        console.log(`Voittaja on ${winner.name} ${winner.votes} äänellä.`);
+        console.log('Tulokset:');
+        for (const candidate of candidates) {
+            console.log(`${candidate.name}: ${candidate.votes} ääntä`);
+        }
+
+        vastakkain();
+        nimet();
+        koirat();
+        nolla();
+        samanumero();
+        noppa();
+        concat();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeet</title>
+</head>
+<body>
+
+    <b>avaa "console"</b>
+    <script>
+
+        function kala() {
+            let num = +prompt("GIMMI DAT FISH BOEH");
+            let alamitta = 37;
+
+            if (num < alamitta) {
+                console.log("laske se takas vetee");
+            } else {
+                console.log("juu pidä hyvänäs");
+            }
+        }
+
+        function hattu() {
+            let nimi = prompt("Name?");
+            
+            var talot = ["Rohkelikko", "Luihuinen", "Puuskupuh", "Korpinkynsi"];
+            let talo = talot[Math.floor(Math.random() * talot.length)]
+            console.log(nimi + ", olet " + talo);
+        }
+
+        function hemolaskuri() {
+            let sukupuoli = prompt("Anna sukupuolesi (m/f)");
+            console.log(sukupuoli);
+            let hemo = +prompt("Anna hemoglobiini arvosi (g/l)")
+            switch (sukupuoli) {
+                case "m":
+                    if (hemo >= 134 && hemo <= 195) {
+                        console.log("hemoglobiini on normaali");
+                    } else if (hemo < 134) {
+                        console.log("hemoglobiini on alhainen");
+                    } else if (hemo > 195) {
+                        console.log("hemoglobiini on liian korkea");
+                    }
+                    break;
+                case "f":
+                    if (hemo >= 117 && hemo <= 175) {
+                        console.log("hemoglobiini on normaali");
+                    } else if (hemo < 117) {
+                        console.log("hemoglobiini on alhainen");
+                    } else if (hemo > 175) {
+                        console.log("hemoglobiini on liian korkea");
+                    }
+                    break;
+            }
+        }
+
+        function lippu() {
+            let massit = +prompt("anna massien määrä");
+            let lippu = 2.80;
+
+            if (massit < lippu) {
+                console.log("massit ei riitä");
+                console.log("lompakossa on: " + massit);
+            } else  if (massit >= lippu) {
+                console.log("hyvää matkaa");
+                massit = massit-lippu;
+                console.log("lompakkoon jäi: " + massit);
+            }
+
+        }
+
+        function neliojuuri() {
+            if (confirm(("Lasketaanko neliöjuuri?"))) {
+                let num = +prompt("anna luku");
+                console.log(Math.sqrt(num));
+                } else {
+                console.log("neliöjuurta ei laskettu")
+                } 
+        }
+
+        function vuosi() {
+            let vuosi = +prompt("syötä vuosi")
+            if ((0 == vuosi % 4) && (0 != vuosi % 100) || (0 == vuosi % 400)) {
+                console.log(vuosi + ' ei ole karkausvuosi');
+            } else {
+                console.log(vuosi + ' on karkausvuosi');
+            }
+        }
+
+        kala();
+        hattu();
+        hemolaskuri();
+        lippu();
+        neliojuuri();
+        vuosi();
+
+    </script>
+</body>
+</html>
